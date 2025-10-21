@@ -1,0 +1,495 @@
+/*
+  ESTILOS GERAIS E RESET
+  Define o container principal para simular a tela mobile.
+*/
+:root {
+    /* Cores */
+    --cor-principal: #e9596c; /* Botões primários */
+    --cor-secundaria: #f4f4f4; /* Fundo leve */
+    --cor-texto-principal: #333333;
+    --cor-texto-secundario: #666666;
+    --cor-borda: #cccccc;
+    
+    /* Cores das Tags */
+    --tag-pendente: #f5b041;
+    --tag-concluida: #708090;
+    --tag-urgente: #708090;
+    --tag-medio: #708090;
+    --tag-depois: #43a047; /* Usando um verde mais notável */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--cor-secundaria); /* Fundo da tela do computador */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container que SIMULA a tela de um smartphone
+  Centralizado na tela do computador.
+*/
+.mobile-container {
+    width: 100%;
+    max-width: 400px; /* Largura típica de celular */
+    height: 100%;
+    min-height: 800px; /* Altura para simular tela vertical */
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative; /* Para o botão flutuante */
+    overflow-y: auto; /* Permite rolar o conteúdo interno */
+}
+
+/* ESTILOS DE TIPOGRAFIA E CABEÇALHO
+*/
+.cabecalho-pagina {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cabecalho-pagina h1 {
+    font-size: 2rem;
+    color: var(--cor-texto-principal);
+    font-weight: 500;
+}
+
+/* ESTILOS DE FORMULÁRIO (Login/Cadastro/Nova Tarefa)
+*/
+.conteudo-principal {
+    padding-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: var(--cor-texto-principal);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--cor-principal);
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* ESTILOS DE BOTÕES
+*/
+.botao-primario,
+.botao-secundario {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, opacity 0.3s;
+    border: none;
+}
+
+/* Botão Principal (vermelho) */
+.botao-primario {
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.botao-primario:hover {
+    opacity: 0.9;
+}
+
+/* Botão Secundário (borda) */
+.botao-secundario {
+    background-color: transparent;
+    color: var(--cor-principal);
+    border: 1px solid var(--cor-principal);
+    font-weight: bold;
+}
+
+.botao-secundario:hover {
+    background-color: rgba(var(--cor-principal-rgb), 0.05);
+}
+
+/* Botões em Bloco */
+.botao-bloco {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Login Específico */
+.botoes-acao-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.link-secundario {
+    color: var(--cor-principal);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.bloco-cadastro {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.bloco-cadastro p {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 10px;
+}
+
+/* LISTA DE TAREFAS (lista.html)
+*/
+.cabecalho-tarefas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.titulo-lista {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.icone-lista-header {
+    font-size: 1.5rem;
+    color: var(--cor-texto-principal);
+}
+
+.botao-filtro-ativo {
+    background-color: var(--cor-texto-secundario);
+    color: #ffffff;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.secao-tarefas {
+    margin-bottom: 30px;
+}
+
+.titulo-secao-pendentes {
+    color: var(--cor-principal);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.titulo-secao-concluidas {
+    color: var(--cor-texto-secundario);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.item-tarefa input[type="checkbox"] {
+    /* Esconde o checkbox padrão */
+    opacity: 0;
+    position: absolute;
+}
+
+.item-tarefa label {
+    position: relative;
+    padding-left: 30px; /* Espaço para o checkbox customizado */
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilo do checkbox customizado */
+.item-tarefa label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--cor-texto-secundario);
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+/* Estilo quando checado */
+.item-tarefa input[type="checkbox"]:checked + label::before {
+    background-color: var(--cor-principal);
+    border-color: var(--cor-principal);
+}
+
+/* Ícone de check */
+.item-tarefa input[type="checkbox"]:checked + label::after {
+    content: '\2713'; /* Símbolo de checkmark */
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* Tarefas Concluídas */
+.item-tarefa.concluida label {
+    text-decoration: line-through;
+    color: var(--cor-texto-secundario);
+}
+
+
+/* Botão Flutuante */
+.botao-flutuante-adicionar {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.botao-flutuante-adicionar:hover {
+    background-color: #d84558; /* Um pouco mais escuro */
+}
+
+
+/* NOVA TAREFA (nova-tarefa.html)
+*/
+.cabecalho-tarefa-edicao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.icone-edicao-header {
+    font-size: 1.5rem;
+    color: var(--cor-texto-principal);
+}
+
+/* Grupos de Botões (Tags) */
+.grupo-botoes-tag {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.tag-status,
+.tag-prioridade {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+/* Tags de Status */
+.tag-pendente {
+    background-color: var(--tag-pendente);
+    color: #ffffff;
+}
+
+.tag-concluida {
+    background-color: var(--tag-concluida);
+    color: #ffffff;
+}
+
+/* Tags de Prioridade */
+.tag-urgente {
+    background-color: var(--tag-urgente);
+    color: #ffffff;
+}
+
+.tag-medio {
+    background-color: var(--tag-medio);
+    color: #ffffff;
+}
+
+.tag-depois {
+    background-color: var(--tag-depois);
+    color: #ffffff;
+}
+
+/* Tag Selecionada - Para simular o estado ativo, escurecendo ligeiramente */
+.tag-selecionada {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5) inset;
+}
+
+/* Data de Conclusão */
+.form-group-data label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.campo-data-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.campo-data-icon i {
+    font-size: 1.5rem;
+    color: var(--cor-texto-secundario);
+}
+
+.campo-data-icon input {
+    width: auto;
+    flex-grow: 1;
+}
+
+/* Botões do Rodapé (Cancelar e Salvar) */
+.botoes-acao-rodape {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.botoes-acao-rodape .botao-primario,
+.botoes-acao-rodape .botao-secundario {
+    flex-grow: 1;
+    width: 50%;
+}
+
+/* ESTILOS PARA VISUALIZAR TAREFA (visualizar-tarefa.html)
+*/
+.cabecalho-detalhe-tarefa {
+    text-align: left; /* Alinha o título da tarefa à esquerda */
+    margin-bottom: 15px;
+}
+
+.cabecalho-detalhe-tarefa h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.detalhes-tarefa {
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+    padding-top: 10px; /* Ajuste no padding superior */
+}
+
+.descricao-tarefa {
+    font-size: 1.1rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.grupo-tags-detalhe {
+    margin-bottom: 30px;
+}
+
+/* Garante que as spans de tag se pareçam com botões mas não são clicáveis */
+.grupo-tags-detalhe .tag-status,
+.grupo-tags-detalhe .tag-prioridade {
+    cursor: default;
+    opacity: 1;
+    box-shadow: none; /* Remove o box-shadow de 'selecionado' */
+}
+
+.info-data-entrega {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: var(--cor-texto-principal);
+    font-weight: 500;
+}
+
+.info-data-entrega i {
+    font-size: 1.6rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* Rodapé de Ações (Excluir/Editar) */
+.rodape-acoes-tarefa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: auto; /* Empurra o rodapé para a parte inferior do container */
+}
+
+.acao-tarefa-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-texto-secundario);
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.acao-tarefa-item:hover {
+    color: var(--cor-principal);
+}
+
+.acao-tarefa-item i {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.acao-excluir {
+    color: #dc3545; /* Cor para exclusão */
+}
+
+.acao-excluir:hover {
+    color: #c82333;
+}

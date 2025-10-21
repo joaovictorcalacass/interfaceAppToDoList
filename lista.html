@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Tarefas - ToDo App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <header class="cabecalho-pagina cabecalho-tarefas">
+            <h1 class="titulo-lista">Minhas tarefas</h1>
+            <i class="fas fa-list-ul icone-lista-header"></i>
+        </header>
+
+        <main class="conteudo-principal lista-tarefas">
+            <button class="botao-filtro-ativo">Tudo</button>
+
+            <section class="secao-tarefas">
+                <h2 class="titulo-secao-pendentes">Pendentes</h2>
+                
+                <div class="item-tarefa">
+                    <input type="checkbox" id="tarefa1">
+                    <label for="tarefa1">Passear com o cachorro</label>
+                </div>
+                <div class="item-tarefa">
+                    <input type="checkbox" id="tarefa2">
+                    <label for="tarefa2">Regar as flores</label>
+                </div>
+                <div class="item-tarefa">
+                    <input type="checkbox" id="tarefa3">
+                    <label for="tarefa3">Lavar o carro</label>
+                </div>
+                <div class="item-tarefa">
+                    <input type="checkbox" id="tarefa4">
+                    <label for="tarefa4">Ler 80 livros por minuto</label>
+                </div>
+                <div class="item-tarefa">
+                    <input type="checkbox" id="tarefa5">
+                    <label for="tarefa5">Sacar o pino do coquilho</label>
+                </div>
+                <div class="item-tarefa">
+                    <input type="checkbox" id="tarefa6">
+                    <label for="tarefa6">Chapiscar de porta aberta</label>
+                </div>
+            </section>
+
+            <section class="secao-tarefas">
+                <h2 class="titulo-secao-concluidas">Concluídas</h2>
+                
+                <div class="item-tarefa concluida">
+                    <input type="checkbox" id="tarefa7" checked>
+                    <label for="tarefa7">Levar a vó no muay thai</label>
+                </div>
+                <div class="item-tarefa concluida">
+                    <input type="checkbox" id="tarefa8" checked>
+                    <label for="tarefa8">Matar o rato pra janta</label>
+                </div>
+            </section>
+        </main>
+
+        <a href="nova-tarefa.html" class="botao-flutuante-adicionar" title="Adicionar nova tarefa">
+            <i class="fas fa-plus"></i>
+        </a>
+    </div>
+</body>
+</html>
